@@ -21,6 +21,10 @@ struct MissionView: View {
         GeometryReader{geometry in
             ScrollView(.vertical){
                 VStack{
+                    Text(self.mission.formattedLaunchDate)
+                        .font(.headline)
+                        .padding()
+                    
                     Image(self.mission.image)
                         .resizable()
                         .scaleEffect()
@@ -35,13 +39,14 @@ struct MissionView: View {
                             destination: AstronautView(astronaut: crewMember.astronaut)){
                            
                         HStack {
+                           // Text(mission.launchDate)
                             Image(crewMember.astronaut.id)
                                 .resizable()
                                 .frame(width: 83, height: 60)
                                 .clipShape(Capsule())
                                 .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
 
-                            VStack(alignment:.trailing) {
+                            VStack(alignment:.leading) {
                                 Text(crewMember.astronaut.name)
                                     .font(.headline)
                                 Text(crewMember.role)

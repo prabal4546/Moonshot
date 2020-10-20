@@ -10,6 +10,24 @@ import SwiftUI
 struct AstronautView: View {
     
     let astronaut:Astronaut
+    //chlg2
+    let missions:[Mission] = Bundle.main.decode("missions.json")
+    let astronautMissions:[Mission]
+    
+    init(astronaut:Astronaut) {
+        
+        self.astronaut = astronaut
+        
+        var matches = [Mission]()
+        
+        for mission in missions{
+            if mission.crew.first(where: {$0.name == astronaut.id}) != nil{
+                matches.append(mission)
+                
+            }
+        }
+        self.astronautMissions = matches
+    }
     
     var body: some View {
         GeometryReader{geometry in

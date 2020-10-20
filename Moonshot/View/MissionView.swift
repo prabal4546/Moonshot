@@ -21,6 +21,7 @@ struct MissionView: View {
         GeometryReader{geometry in
             ScrollView(.vertical){
                 VStack{
+                    //chg1
                     Text(self.mission.formattedLaunchDate)
                         .font(.headline)
                         .padding()
@@ -36,7 +37,7 @@ struct MissionView: View {
                     
                     ForEach(self.astronauts, id: \.role) { crewMember in
                         NavigationLink(
-                            destination: AstronautView(astronaut: crewMember.astronaut)){
+                            destination: AstronautView( astronaut: crewMember.astronaut)){
                            
                         HStack {
                            // Text(mission.launchDate)

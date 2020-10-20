@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showLaunchDate = true
+    
     let astronauts:[Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     var body: some View {
@@ -26,7 +28,10 @@ struct ContentView: View {
                     
                 }
             }
-            .navigationBarTitle("Moonshot")
+            .navigationBarTitle("Apollo Missions")
+            .navigationBarItems(trailing: Button(self.showLaunchDate ? astronauts:"Launch Date"){
+                self.showLaunchDate.toggle()
+            })
         }
     }
 }

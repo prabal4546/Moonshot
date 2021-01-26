@@ -22,14 +22,14 @@ struct ContentView: View {
                     VStack(alignment:.leading){
                         Text(mission.displayName)
                             .font(.headline)
-                        Text(mission.formattedLaunchDate)
-                        
+                       // Text(mission.formattedLaunchDate)
+
                     }
                     
                 }
             }
             .navigationBarTitle("Apollo Missions")
-            .navigationBarItems(trailing: Button(self.showLaunchDate ? astronauts:"Launch Date"){
+            .navigationBarItems(trailing: Button(self.showLaunchDate ? "Launch Date":"Names"){
                 self.showLaunchDate.toggle()
             })
         }
